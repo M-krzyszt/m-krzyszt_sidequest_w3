@@ -1,48 +1,57 @@
-// NOTE: Do NOT add setup() or draw() in this file
-// setup() and draw() live in main.js
-// This file only defines:
-// 1) drawWin() → what the win screen looks like
-// 2) input handlers → how the player returns to the start screen
-//
-// This file is intentionally very similar to lose.js.
-// The goal is to show that win/lose screens are often
-// simple “end states” with minimal logic.
+function drawFood() {
+  background(255, 230, 200);
+  textAlign(CENTER, CENTER);
+  textSize(30);
+  fill(0);
+  text("You're hungry! What do you want to eat?", width / 2, 100);
 
-// ------------------------------------------------------------
-// Main draw function for win screen
-// ------------------------------------------------------------
-// drawWin() is called from main.js
-// only when currentScreen === "win"
-function drawWin() {
-  // Green-tinted background to communicate success
-  background(200, 255, 200);
+  textSize(24);
+
+  // Hotdog Button
+  let hotdogX = width / 2;
+  let hotdogY = 200;
+  let hotdogW = 200;
+  let hotdogH = 40;
+
+  // hover + button
+  if (
+    mouseX > hotdogX - hotdogW / 2 &&
+    mouseX < hotdogX + hotdogW / 2 &&
+    mouseY > hotdogY - hotdogH / 2 &&
+    mouseY < hotdogY + hotdogH / 2
+  ) {
+    fill(180, 255, 180);
+  } else {
+    fill(200);
+  }
+  rect(hotdogX - hotdogW / 2, hotdogY - hotdogH / 2, hotdogW, hotdogH, 10);
 
   fill(0);
-  textAlign(CENTER, CENTER);
+  text("Hotdog", hotdogX, hotdogY);
 
-  // Main success message
-  textSize(40);
-  text("You Win!", width / 2, 300);
+  // Pasta Button
+  let pastaX = width / 2;
+  let pastaY = 250;
+  let pastaW = 200;
+  let pastaH = 40;
 
-  // Instruction text
-  textSize(20);
-  text("Click or press R to return to Start.", width / 2, 360);
-}
-
-// ------------------------------------------------------------
-// Mouse input for win screen
-// ------------------------------------------------------------
-// Any mouse click returns the player to the start screen
-function winMousePressed() {
-  currentScreen = "start";
-}
-
-// ------------------------------------------------------------
-// Keyboard input for win screen
-// ------------------------------------------------------------
-// R is commonly used for “restart” in games
-function winKeyPressed() {
-  if (key === "r" || key === "R") {
-    currentScreen = "start";
+  if (
+    mouseX > pastaX - pastaW / 2 &&
+    mouseX < pastaX + pastaW / 2 &&
+    mouseY > pastaY - pastaH / 2 &&
+    mouseY < pastaY + pastaH / 2
+  ) {
+    fill(180, 255, 180);
+  } else {
+    fill(200);
   }
+  rect(pastaX - pastaW / 2, pastaY - pastaH / 2, pastaW, pastaH, 10);
+
+  fill(0);
+  text("Pasta", pastaX, pastaY);
+}
+
+function foodMousePressed() {
+  if (mouseY > 180 && mouseY < 220) currentScreen = "drink";
+  else if (mouseY > 230 && mouseY < 270) currentScreen = "drink";
 }
