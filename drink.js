@@ -7,7 +7,7 @@ function drawDrink() {
 
   textSize(24);
 
-  // --- Water Button ---
+  // Water Button 
   let waterX = width / 2;
   let waterY = 200;
   let waterW = 200;
@@ -19,16 +19,16 @@ function drawDrink() {
     mouseY > waterY - waterH / 2 &&
     mouseY < waterY + waterH / 2
   ) {
-    fill(180, 255, 180); // lighter green hover
+    fill(180, 255, 180); 
   } else {
-    fill(200); // default button color
+    fill(200); 
   }
   rect(waterX - waterW / 2, waterY - waterH / 2, waterW, waterH, 10);
 
   fill(0);
   text("Water", waterX, waterY);
 
-  // --- Soda Button ---
+  // Soda Button 
   let sodaX = width / 2;
   let sodaY = 250;
   let sodaW = 200;
@@ -40,7 +40,7 @@ function drawDrink() {
     mouseY > sodaY - sodaH / 2 &&
     mouseY < sodaY + sodaH / 2
   ) {
-    fill(180, 255, 180); // lighter green hover
+    fill(180, 255, 180); 
   } else {
     fill(200);
   }
@@ -52,6 +52,6 @@ function drawDrink() {
 
 function drinkMousePressed() {
   if (mouseY > 180 && mouseY < 220)
-    currentScreen = "full"; // Water
-  else if (mouseY > 230 && mouseY < 270) currentScreen = "exploded"; // Soda
+    currentScreen = "full"; 
+  else if (mouseY > 230 && mouseY < 270) currentScreen = "exploded"; 
 }

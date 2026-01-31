@@ -1,4 +1,4 @@
-let currentScreen = "start"; // starting screen
+let currentScreen = "start"; 
 
 function setup() {
   createCanvas(600, 400);
@@ -7,7 +7,7 @@ function setup() {
 function draw() {
   background(220);
 
-  // call the correct screen
+  // call screen
   if (currentScreen === "start") drawStart();
   else if (currentScreen === "food") drawFood();
   else if (currentScreen === "drink") drawDrink();
@@ -15,7 +15,7 @@ function draw() {
   else if (currentScreen === "exploded") drawExploded();
 }
 
-// Mouse forwarding
+// Mouse 
 function mousePressed() {
   if (currentScreen === "start") startMousePressed();
   else if (currentScreen === "food") foodMousePressed();
@@ -24,7 +24,7 @@ function mousePressed() {
   else if (currentScreen === "exploded") explodedMousePressed();
 }
 
-// Keyboard forwarding
+// Keyboard 
 function keyPressed() {
   if (currentScreen === "start") startKeyPressed();
   else if (currentScreen === "food") foodKeyPressed();
